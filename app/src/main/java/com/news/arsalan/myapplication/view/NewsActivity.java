@@ -83,7 +83,7 @@ public class NewsActivity extends AppCompatActivity implements NewsHeadLineFragm
                     String filterText = search.getText().toString();
                     if (StringUtil.isNotEmpty(filterText)) {
                         if (!headLinesFragment.filterData(context, filterText.toLowerCase())) {
-                            Toast.makeText(getApplicationContext(), String.format("Nothing finding that matches with %s !!??", filterText), Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), String.format(getString(R.string.search_key_not_found), filterText), Toast.LENGTH_LONG).show();
                         }
                     }
                     return false;
@@ -112,7 +112,6 @@ public class NewsActivity extends AppCompatActivity implements NewsHeadLineFragm
     protected void onResume() {
         super.onResume();
         closeKeyBoard();
-        Log.i(TAG, " onResume" + (findViewById(R.id.news_detail_fragment_container) == null));
         if (findViewById(R.id.news_detail_fragment_container) == null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction transaction = fragmentManager.beginTransaction();

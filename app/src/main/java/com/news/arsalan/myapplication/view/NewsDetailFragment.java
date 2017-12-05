@@ -80,7 +80,7 @@ public class NewsDetailFragment extends Fragment {
 
 
         progressDialog = new ProgressDialog(getActivity());
-        progressDialog.setMessage("Loading...");
+        progressDialog.setMessage(getString(R.string.progress_bar_message));
         progressDialog.show();
 
         newsDetailWebView.setWebViewClient(new WebViewClient() {
