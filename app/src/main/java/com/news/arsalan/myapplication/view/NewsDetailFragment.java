@@ -67,11 +67,17 @@ public class NewsDetailFragment extends Fragment {
         WebSettings settings = newsDetailWebView.getSettings();
 
         settings.setJavaScriptEnabled(true);
-        newsDetailWebView.setScrollBarStyle(View.SCROLLBARS_OUTSIDE_OVERLAY);
+        settings.setRenderPriority(WebSettings.RenderPriority.HIGH);
+        settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        settings.setAppCacheEnabled(true);
+        settings.setDomStorageEnabled(true);
+        settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+        settings.setUseWideViewPort(true);
+        settings.setEnableSmoothTransition(true);
+        settings.setBuiltInZoomControls(true);
+        settings.setLoadWithOverviewMode(true);
+        newsDetailWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
 
-        newsDetailWebView.getSettings().setBuiltInZoomControls(true);
-        newsDetailWebView.getSettings().setUseWideViewPort(true);
-        newsDetailWebView.getSettings().setLoadWithOverviewMode(true);
 
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Loading...");
